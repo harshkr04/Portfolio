@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initContactForm();
   initActiveNav();
+  initCopyEmail();
 });
 
 
@@ -197,6 +198,27 @@ function initContactForm() {
         submitBtn.style.background = '';
         submitBtn.disabled = false;
       }, 3000);
+    }
+  });
+}
+
+
+/* ─── Copy Email to Clipboard ─────────────────────────────── */
+function initCopyEmail() {
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (!copyBtn) return;
+
+  const copyToast = document.getElementById('copyToast');
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('singh101harshu@gmail.com');
+      copyToast.classList.add('show');
+      setTimeout(() => {
+        copyToast.classList.remove('show');
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
     }
   });
 }
