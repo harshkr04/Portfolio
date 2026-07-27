@@ -1119,20 +1119,7 @@ strong { color: var(--text-primary); font-weight: 600; }
   gap: var(--space-md);
 }
 
-.contact-link-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
-}
-
-.contact-link-item:hover {
-  background: var(--bg-card);
-  transform: translateX(6px);
-}
-
+/* ── Email row: icon+text left, copy button right ── */
 .contact-link-wrapper {
   display: flex;
   align-items: center;
@@ -1142,6 +1129,17 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 .contact-link-wrapper .contact-link-item {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.contact-link-wrapper .contact-link-item:hover {
+  background: var(--bg-card);
+  transform: translateX(4px);
 }
 
 .copy-btn {
@@ -1166,6 +1164,7 @@ strong { color: var(--text-primary); font-weight: 600; }
   background: var(--accent-subtle);
 }
 
+/* Toast: absolutely positioned, no layout shift */
 .copy-toast {
   position: absolute;
   bottom: 100%;
@@ -1179,13 +1178,16 @@ strong { color: var(--text-primary); font-weight: 600; }
   padding: 4px 8px;
   border-radius: 4px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: all var(--transition-fast);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   white-space: nowrap;
+  z-index: 10;
 }
 
 .copy-toast.show {
   opacity: 1;
+  visibility: visible;
   transform: translateX(-50%) translateY(-10px);
 }
 
@@ -1217,13 +1219,15 @@ strong { color: var(--text-primary); font-weight: 600; }
   display: block;
 }
 
+/* ── 2×2 grid: GitHub, LinkedIn, Kaggle, LeetCode ── */
 .contact-links-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px !important;
 }
 
-.contact-link-item.compact {
+.contact-links-grid .contact-link-item {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1234,26 +1238,33 @@ strong { color: var(--text-primary); font-weight: 600; }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   min-height: 88px;
+  width: auto;
+  transition: all var(--transition-fast);
 }
 
-.contact-link-item.compact:hover {
+.contact-links-grid .contact-link-item:hover {
   background: var(--bg-card-hover);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
 
-.contact-link-item.compact .contact-link-icon {
+.contact-links-grid .contact-link-item .contact-link-icon {
   width: 36px;
   height: 36px;
 }
 
+/* ── Resume download button ── */
 .contact-link-item.resume-btn {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: var(--space-lg);
   background: var(--accent-subtle);
   border: 1px solid var(--accent);
   border-radius: var(--radius-md);
   color: var(--accent-light);
   padding: var(--space-md) var(--space-lg);
+  transition: all var(--transition-fast);
 }
 
 .contact-link-item.resume-btn .contact-link-label {
