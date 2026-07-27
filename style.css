@@ -450,51 +450,6 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 .btn-full { width: 100%; justify-content: center; }
 
-/* Scroll indicator — anchored to .hero section, not hero-content */
-.hero-scroll-indicator {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-sm);
-  color: var(--text-tertiary);
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  letter-spacing: 0.05em;
-  animation: scroll-indicator-fade 3s ease-in-out infinite;
-}
-
-@keyframes scroll-indicator-fade {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 0.3; }
-}
-
-.scroll-mouse {
-  width: 24px;
-  height: 38px;
-  border: 2px solid var(--text-tertiary);
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-}
-
-.scroll-dot {
-  width: 3px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 2px;
-  animation: scroll-bounce 2s ease-in-out infinite;
-}
-
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(10px); opacity: 0.3; }
-}
 
 /* ═══════════════════════════════════════════════════════════════
    SECTIONS – SHARED
@@ -1253,35 +1208,6 @@ strong { color: var(--text-primary); font-weight: 600; }
   height: 36px;
 }
 
-/* ── Resume download button ── */
-.contact-link-item.resume-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-lg);
-  background: var(--accent-subtle);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-md);
-  color: var(--accent-light);
-  padding: var(--space-md) var(--space-lg);
-  transition: all var(--transition-fast);
-}
-
-.contact-link-item.resume-btn .contact-link-label {
-  color: var(--accent-light);
-  font-weight: 600;
-}
-
-.contact-link-item.resume-btn:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-  transform: translateY(-2px);
-}
-
-.contact-link-item.resume-btn:hover .contact-link-label,
-.contact-link-item.resume-btn:hover .contact-link-icon {
-  color: var(--bg-primary);
-}
 
 /* Contact Form */
 .contact-form-wrapper {
@@ -1424,9 +1350,6 @@ strong { color: var(--text-primary); font-weight: 600; }
     padding: var(--space-lg);
   }
 
-  .hero-scroll-indicator {
-    display: none;
-  }
 
   .section {
     padding: var(--space-3xl) 0;
